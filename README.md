@@ -12,37 +12,127 @@ O EasyABNT fornece um conjunto inicial de instrucoes para que a IA ajude a produ
 - sinalizar lacunas que precisam de confirmacao humana;
 - evitar inventar fontes, normas, dados ou referencias.
 
-## Estrutura
+## Estrutura do repositorio
 
 ```text
 .
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
 ├── README.md
+├── claude-plugin/
+│   └── marketplace.json
 └── plugins/
-    └── easy-abnt/
+    └── <plugin-id>/
         ├── .codex-plugin/plugin.json
         ├── .mcp.json
         ├── .app.json
         ├── README.md
-        ├── marketplace.example.json
         ├── assets/
         ├── hooks/
         ├── scripts/
         └── skills/
-            └── abnt-document-writer/
+            └── <skill-id>/
                 ├── SKILL.md
                 └── references/
-                    └── abnt-writing-checklist.md
+                    └── <reference>.md
 ```
+
+Esta estrutura separa o que e fixo no repositorio do que varia por instituicao:
+
+- `claude-plugin/marketplace.json` lista os plugins disponiveis no marketplace local.
+- `plugins/easy-abnt/` e o plugin base com regras genericas de escrita academica em ABNT.
+- `plugins/<instituicao>-abnt/` deve concentrar regras especificas de uma instituicao, como `unip-abnt`.
+- `.codex-plugin/plugin.json` descreve o plugin, sua versao, metadados e capacidades.
+- `skills/<skill-id>/SKILL.md` contem o comportamento principal carregado pela IA.
+- `skills/<skill-id>/references/` guarda checklists, regras e notas tecnicas carregadas sob demanda.
+- `assets/` fica reservado para icones, logos, screenshots e modelos de arquivo.
+- `hooks/`, `scripts/`, `.mcp.json` e `.app.json` ficam reservados para integracoes futuras.
 
 ## Marketplace
 
-O arquivo canonico do marketplace deveria ficar em `.agents/plugins/marketplace.json`. Neste ambiente, `.agents` esta somente leitura, entao foi criado um exemplo em:
+O marketplace do repositorio fica em:
 
 ```text
-plugins/easy-abnt/marketplace.example.json
+claude-plugin/marketplace.json
 ```
 
-Quando `.agents` estiver gravavel, copie o conteudo equivalente para `.agents/plugins/marketplace.json`.
+Cada novo plugin institucional deve ser adicionado nesse arquivo para ficar disponivel no catalogo local.
+
+## Desenvolvimento
+
+Este repositorio deve evoluir como um catalogo de plugins ABNT. O plugin `easy-abnt` funciona como base generica; plugins institucionais devem especializar regras, modelos e excecoes locais sem alterar o comportamento generico.
+
+### Criando um plugin institucional
+
+Use o padrao:
+
+```text
+plugins/<instituicao>-abnt/
+```
+
+Exemplos:
+
+```text
+plugins/unip-abnt/
+plugins/usp-abnt/
+plugins/ufrj-abnt/
+```
+
+Cada plugin institucional deve conter:
+
+- `.codex-plugin/plugin.json` com `name`, `version`, descricao, metadados e capacidades.
+- `README.md` com escopo, fontes usadas e limitacoes conhecidas.
+- `skills/<skill-id>/SKILL.md` com o comportamento principal da IA.
+- `skills/<skill-id>/references/` com checklist, regras locais e notas tecnicas.
+- Entrada correspondente em `claude-plugin/marketplace.json`.
+
+### O que entra em cada lugar
+
+- Regras genericas de escrita academica ficam em `plugins/easy-abnt/`.
+- Regras de uma instituicao especifica ficam em `plugins/<instituicao>-abnt/`.
+- Regras longas, checklists e guias ficam em `skills/<skill-id>/references/`.
+- Instrucoes essenciais para a IA ficam em `SKILL.md`.
+- Logos, icones, screenshots e templates binarios ficam em `assets/`.
+- Scripts de validacao, conversao ou automacao ficam em `scripts/`.
+
+### Fontes e confiabilidade
+
+Ao adicionar regras institucionais, informe a origem sempre que possivel:
+
+- manual oficial de trabalhos academicos;
+- template institucional;
+- norma interna da biblioteca;
+- edital ou guia de curso;
+- orientacao formal de professor, coordenacao ou orientador.
+
+Se uma regra nao tiver fonte verificavel, marque como suposicao ou pendencia. O projeto nao deve inventar citacoes, referencias, dados bibliograficos, normas ou requisitos institucionais.
+
+### Validacao local
+
+Valide os manifests JSON antes de enviar mudancas:
+
+```bash
+python3 -m json.tool plugins/<plugin-id>/.codex-plugin/plugin.json
+python3 -m json.tool claude-plugin/marketplace.json
+```
+
+Para revisoes de texto e regras ABNT, confira manualmente:
+
+- se o plugin institucional nao alterou regras genericas indevidamente;
+- se toda citacao no texto tem referencia correspondente;
+- se referencias incompletas foram marcadas como campos faltantes;
+- se as regras locais estao associadas a uma fonte ou pendencia explicita.
+
+### Versionamento de plugins
+
+Cada plugin versiona de forma independente:
+
+- `MAJOR` para mudancas incompatíveis no comportamento ou estrutura do plugin.
+- `MINOR` para novos tipos de documento, novos skills, templates ou regras institucionais.
+- `PATCH` para correcoes de texto, metadados, pequenos ajustes e clarificacoes.
+
+Commits e pull requests devem seguir os padroes descritos em [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Status
 
