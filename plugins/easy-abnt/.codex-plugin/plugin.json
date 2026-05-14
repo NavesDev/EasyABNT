@@ -1,0 +1,45 @@
+{
+  "name": "easy-abnt",
+  "version": "0.1.0",
+  "description": "Assistente para planejar, redigir e revisar documentos academicos conforme normas ABNT.",
+  "author": {
+    "name": "EasyABNT",
+    "email": "contato@example.com",
+    "url": "https://github.com/NavesDev/EasyABNT"
+  },
+  "homepage": "https://github.com/NavesDev/EasyABNT",
+  "repository": "https://github.com/NavesDev/EasyABNT",
+  "license": "MIT",
+  "keywords": [
+    "abnt",
+    "documentos-academicos",
+    "normas",
+    "tcc",
+    "artigo-cientifico"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/",
+  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "EasyABNT",
+    "shortDescription": "Escreve e revisa documentos academicos em padrao ABNT.",
+    "longDescription": "EasyABNT orienta agentes de IA na criacao, estruturacao e revisao de trabalhos academicos brasileiros, incluindo elementos pre-textuais, textuais e pos-textuais, linguagem formal, citacoes e referencias em conformidade com praticas ABNT.",
+    "developerName": "EasyABNT",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write",
+      "Review"
+    ],
+    "websiteURL": "https://github.com/NavesDev/EasyABNT",
+    "privacyPolicyURL": "https://github.com/NavesDev/EasyABNT",
+    "termsOfServiceURL": "https://github.com/NavesDev/EasyABNT",
+    "defaultPrompt": [
+      "Crie um esqueleto ABNT para meu TCC.",
+      "Revise este texto conforme ABNT.",
+      "Formate minhas referencias em ABNT."
+    ],
+    "brandColor": "#0F766E"
+  }
+}
