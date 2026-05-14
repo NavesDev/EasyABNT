@@ -1,7 +1,7 @@
 {
-  "name": "easy-abnt",
+  "name": "unip-abnt",
   "version": "0.1.0",
-  "description": "Assistente para planejar, redigir e revisar documentos academicos conforme normas ABNT.",
+  "description": "Plugin institucional para orientar documentos academicos conforme requisitos ABNT aplicaveis a UNIP.",
   "author": {
     "name": "NavesDev",
     "url": "https://github.com/NavesDev/EasyABNT"
@@ -11,19 +11,19 @@
   "license": "MIT",
   "keywords": [
     "abnt",
+    "unip",
     "documentos-academicos",
-    "normas",
     "tcc",
-    "artigo-cientifico"
+    "institucional"
   ],
   "skills": "./skills/",
   "hooks": "./hooks/",
   "mcpServers": "./.mcp.json",
   "apps": "./.app.json",
   "interface": {
-    "displayName": "EasyABNT",
-    "shortDescription": "Escreve e revisa documentos academicos em padrao ABNT.",
-    "longDescription": "EasyABNT orienta agentes de IA na criacao, estruturacao e revisao de trabalhos academicos brasileiros, incluindo elementos pre-textuais, textuais e pos-textuais, linguagem formal, citacoes e referencias em conformidade com praticas ABNT.",
+    "displayName": "UNIP ABNT",
+    "shortDescription": "Assistente ABNT para trabalhos academicos da UNIP.",
+    "longDescription": "UNIP ABNT especializa o EasyABNT para apoiar escrita, estrutura, revisao e verificacao de documentos academicos com foco em requisitos institucionais da Universidade Paulista. Regras especificas devem ser mantidas com fonte oficial ou marcadas como pendencia.",
     "developerName": "EasyABNT",
     "category": "Productivity",
     "capabilities": [
@@ -35,10 +35,10 @@
     "privacyPolicyURL": "https://github.com/NavesDev/EasyABNT",
     "termsOfServiceURL": "https://github.com/NavesDev/EasyABNT",
     "defaultPrompt": [
-      "Crie um esqueleto ABNT para meu TCC.",
-      "Revise este texto conforme ABNT.",
-      "Formate minhas referencias em ABNT."
+      "Crie um esqueleto UNIP ABNT.",
+      "Revise meu TCC para padrao UNIP.",
+      "Liste pendencias ABNT da UNIP."
     ],
-    "brandColor": "#0F766E"
+    "brandColor": "#B91C1C"
   }
 }
