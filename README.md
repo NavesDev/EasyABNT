@@ -1,4 +1,4 @@
-# EasyABNT
+# EasyABNT🇧🇷
 
 Plugin local para orientar agentes de IA na escrita, estruturacao e revisao de documentos academicos conforme praticas ABNT.
 
@@ -47,6 +47,12 @@ Quando `.agents` estiver gravavel, copie o conteudo equivalente para `.agents/pl
 ## Status
 
 Versao inicial: `0.1.0`. A base ainda deve receber validacao contra normas ABNT especificas e templates finais de saida.
+
+## Adicione sua instituicao
+
+Se voce e estudante, professor, orientador ou pesquisador, contribua adicionando as regras da sua instituicao academica como um plugin proprio do marketplace. A ideia e que cada instituicao tenha um pacote separado, por exemplo `unip-abnt`, para preservar manuais, modelos e excecoes locais sem misturar tudo no plugin generico.
+
+Ao contribuir, inclua sempre a fonte das regras institucionais quando possivel, como manual de trabalhos academicos, template oficial, edital, guia do curso ou orientacao formal da biblioteca.
 
 ## Comunidade
 
