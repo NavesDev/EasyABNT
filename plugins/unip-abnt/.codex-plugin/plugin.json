@@ -35,7 +35,7 @@
     "privacyPolicyURL": "https://github.com/NavesDev/EasyABNT",
     "termsOfServiceURL": "https://github.com/NavesDev/EasyABNT",
     "defaultPrompt": [
-      "Crie um esqueleto UNIP ABNT.",
+      "Gere capa e folha de rosto UNIP.",
       "Revise meu TCC para padrao UNIP.",
       "Liste pendencias ABNT da UNIP."
     ],

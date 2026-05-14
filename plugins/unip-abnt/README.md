@@ -13,6 +13,10 @@ Use este plugin para:
 - registrar pendencias quando uma regra depender de manual, template ou orientacao da instituicao;
 - evitar invencao de dados bibliograficos, fontes ou normas.
 
+## Skills
+
+- `unip-gerar-capa`: creates or reviews UNIP cover pages, title pages, contracapa requests, Google Docs-oriented outputs, and DOCX-ready outputs.
+
 ## Fontes
 
 As regras especificas da UNIP ainda precisam ser preenchidas com fontes oficiais.
@@ -24,6 +28,14 @@ Fontes esperadas:
 - orientacoes da biblioteca;
 - normas do curso, edital, disciplina ou professor orientador.
 
+## Material De Referencia
+
+- `references/sources/`: raw institutional source files, such as PDFs and templates.
+- `references/derived/`: developer-facing extracted notes from source files.
+- `references/google-docs-setup.md`: reusable Google Docs setup for any UNIP skill.
+- `references/docx-setup.md`: reusable DOCX/Word setup for any UNIP skill.
+- `skills/<skill-id>/references/`: English operational references loaded by a specific skill.
+
 ## Estrutura
 
 ```text
@@ -34,12 +46,17 @@ plugins/unip-abnt/
 ├── README.md
 ├── assets/
 ├── hooks/
+├── references/
+│   ├── google-docs-setup.md
+│   ├── docx-setup.md
+│   ├── derived/
+│   └── sources/
 ├── scripts/
 └── skills/
-    └── unip-abnt-document-writer/
+    └── unip-gerar-capa/
         ├── SKILL.md
         └── references/
-            └── unip-abnt-checklist.md
+            └── cover-and-title-page-formatting.md
 ```
 
 ## Status
